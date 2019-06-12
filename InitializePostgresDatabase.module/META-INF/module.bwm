@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_99HlMIEiEemGC8ZqSgn_Bw" targetNamespace="http://tns.tibco.com/bw/composite/InitializePostgresDatabase.module" name="InitializePostgresDatabase.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:property xmi:id="_-XiQUIEiEemGC8ZqSgn_Bw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-XsBUIEiEemGC8ZqSgn_Bw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-XsBUYEiEemGC8ZqSgn_Bw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-XsBUoEiEemGC8ZqSgn_Bw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-XsBU4EiEemGC8ZqSgn_Bw" name="BW.DOMAIN.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-XsBVIEiEemGC8ZqSgn_Bw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-X1yUIEiEemGC8ZqSgn_Bw" name="BW.APPSPACE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-X1yUYEiEemGC8ZqSgn_Bw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_-X1yUoEiEemGC8ZqSgn_Bw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Iz8rMIErEemGC8ZqSgn_Bw" name="/PostgresDataBase/MaximumConnection" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_na5b0IEqEemGC8ZqSgn_Bw" name="/PostgresDataBase/User" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_uNDFEIEqEemGC8ZqSgn_Bw" name="/PostgresDataBase/Password" type="property:password" scaext:simpleValue="#!s+PhZwPJDH0QyyHFU9lG3A==" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_p5eXEIEqEemGC8ZqSgn_Bw" name="/PostgresDataBase/DataBaseDriver" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_qJ_fUIEqEemGC8ZqSgn_Bw" name="/PostgresDataBase/DataBaseUrl" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_c2ksAIErEemGC8ZqSgn_Bw" name="/PostgresDataBase/LoginTimeout" type="XMLSchema:int" scaext:simpleValue="0" publicAccess="true" scalable="true"/>
+  <sca:property xmi:id="_sQiVEIEqEemGC8ZqSgn_Bw" name="/ConfigurationFile/Filepath_DBScript" type="XMLSchema:string" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_-LzhcIEiEemGC8ZqSgn_Bw" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-LzhcYEiEemGC8ZqSgn_Bw" processName="initializepostgresdatabase.module.BasicInitialize"/>
+  </sca:component>
+  <sca:component xmi:id="_EqsQcIEjEemGC8ZqSgn_Bw" name="ComponentDataInitialize" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_EqsQcYEjEemGC8ZqSgn_Bw" processName="initializepostgresdatabase.module.DataInitialize"/>
+  </sca:component>
+</sca:composite>

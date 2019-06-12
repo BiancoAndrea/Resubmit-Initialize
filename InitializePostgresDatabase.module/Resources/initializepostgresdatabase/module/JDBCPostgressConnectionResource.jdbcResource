@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://xsd.tns.tibco.com/amf/models/sharedresource/jdbc" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:subject="http://xsd.tns.tibco.com/trinity/models/identity/subject" xmi:id="_62zW0X04EemrTa9WoPb-qg" name="initializepostgresdatabase.module.JDBCPostgressConnectionResource" type="jdbc:JdbcDataSource">
+  <jndi:reference xmi:id="_62_kEH04EemrTa9WoPb-qg" key="subjectJndiName" type="subject:SubjectConfiguration" value=""/>
+  <jndi:configuration xsi:type="jdbc:JdbcDataSource" xmi:id="_63ALIH04EemrTa9WoPb-qg">
+    <substitutionBindings xmi:id="_XasSIIErEemGC8ZqSgn_Bw" template="maxConnections" propName="/PostgresDataBase/MaximumConnection"/>
+    <substitutionBindings xmi:id="_YCjjYIErEemGC8ZqSgn_Bw" template="username" propName="/PostgresDataBase/User"/>
+    <substitutionBindings xmi:id="_YurCgIErEemGC8ZqSgn_Bw" template="password" propName="/PostgresDataBase/Password"/>
+    <connectionConfig xsi:type="jdbc:NonXaConnection" xmi:id="_63ALIX04EemrTa9WoPb-qg">
+      <substitutionBindings xmi:id="_ZZHGoIErEemGC8ZqSgn_Bw" template="jdbcDriver" propName="/PostgresDataBase/DataBaseDriver"/>
+      <substitutionBindings xmi:id="_aPG6gIErEemGC8ZqSgn_Bw" template="dbURL" propName="/PostgresDataBase/DataBaseUrl"/>
+      <substitutionBindings xmi:id="_noO3wIErEemGC8ZqSgn_Bw" template="loginTimeout" propName="/PostgresDataBase/LoginTimeout"/>
+    </connectionConfig>
+  </jndi:configuration>
+</jndi:namedResource>
