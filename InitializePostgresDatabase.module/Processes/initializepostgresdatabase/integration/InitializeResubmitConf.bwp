@@ -176,6 +176,8 @@
                         <element maxOccurs="1" minOccurs="1"
                             name="retry_freq" nillable="true" type="decimal"/>
                         <element maxOccurs="1" minOccurs="1"
+                            name="enabled" nillable="true" type="string"/>
+                        <element maxOccurs="1" minOccurs="1"
                             name="not_id" nillable="true" type="string"/>
                         <element maxOccurs="1" minOccurs="1"
                             name="application" nillable="true" type="string"/>
@@ -184,7 +186,7 @@
                         <element maxOccurs="1" minOccurs="1"
                             name="service" nillable="true" type="string"/>
                         <element maxOccurs="1" minOccurs="1"
-                            name="appnode" nillable="true" type="string"/>
+                            name="appspace" nillable="true" type="string"/>
                         <element maxOccurs="1" minOccurs="0"
                             name="ServerTimeZone" type="string"/>
                         <element maxOccurs="1" minOccurs="0"
@@ -266,6 +268,11 @@
             </xs:complexType>
             <xs:element name="jdbcUpdateActivityOutput" type="tns:jdbcUpdateOutput"/>
         </xs:schema>
+        <wsdl:definitions
+            targetNamespace="http://xmlns.example.com/20190611115105"
+            xmlns:tns="http://xmlns.example.com/20190611115105"
+            xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+            xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
     </tibex:Types>
     <tibex:ProcessInfo callable="true" createdBy="Andrea"
         createdOn="Tue Jun 11 11:51:05 CEST 2019" description=""
@@ -692,7 +699,7 @@
                     </bpws:sources>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+05df0290-54c1-4537-a6cd-869405ef490d+input&quot; xmlns:tns=&quot;http://www.example.org/InitializeDB&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;>&lt;tns1:jdbcUpdateActivityInput>&lt;tipo_rich>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:tipo_rich)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:tipo_rich&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/tipo_rich>&lt;retry_num_max>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:retry_num_max)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:retry_num_max&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/retry_num_max>&lt;retry_freq>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:retry_freq)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:retry_freq&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/retry_freq>&lt;not_id>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:not_id)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:not_id&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/not_id>&lt;application>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:application)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:application&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/application>&lt;version>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:version)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:version&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/version>&lt;service>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:service)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:service&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/service>&lt;appnode>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:appnode)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:appnode&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/appnode>&lt;/tns1:jdbcUpdateActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://www.tibco.com/namespaces/tnt/plugins/jdbc+05df0290-54c1-4537-a6cd-869405ef490d+input&quot; xmlns:tns=&quot;http://www.example.org/InitializeDB&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Start&quot;/>&lt;xsl:template name=&quot;JDBCUpdate-input&quot; match=&quot;/&quot;>&lt;tns1:jdbcUpdateActivityInput>&lt;tipo_rich>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:tipo_rich)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:tipo_rich&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/tipo_rich>&lt;retry_num_max>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:retry_num_max)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:retry_num_max&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/retry_num_max>&lt;retry_freq>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:retry_freq)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:retry_freq&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/retry_freq>&lt;enabled>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:enabled)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:enabled&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/enabled>&lt;not_id>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:not_id)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:not_id&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/not_id>&lt;application>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:application)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:application&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/application>&lt;version>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:version)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:version&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/version>&lt;service>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:service)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:service&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/service>&lt;appspace>&lt;xsl:choose>&lt;xsl:when test=&quot;exists($Start/tns:appspace)&quot;>&lt;xsl:value-of select=&quot;$Start/tns:appspace&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;xsl:attribute name=&quot;xsi:nil&quot;>true&lt;/xsl:attribute>&lt;/xsl:otherwise>&lt;/xsl:choose>&lt;/appspace>&lt;/tns1:jdbcUpdateActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -705,7 +712,7 @@
                                     <type href="http://ns.tibco.com/bw/palette/jdbc#//JDBCUpdateActivity"/>
                                     <value
                                     sharedResourceProperty="jdbcProperty"
-                                    sqlStatement="INSERT INTO tibco_coll_maximo.resubmit_conf(&#xa;&#x9;tipo_rich, retry_num_max, retry_freq, not_id, application, version, service, appnode)&#xa;&#x9;VALUES (?, ?, ?, ?, ?, ?, ?, ?);"
+                                    sqlStatement="INSERT INTO TIBCO_COLL_MAXIMO.RESUBMIT_CONF (TIPO_RICH, RETRY_NUM_MAX,&#xa;  RETRY_FREQ, ENABLED, NOT_ID, APPLICATION, VERSION, SERVICE,&#xa;  APPSPACE)&#xa;  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
                                     timeout="10" xsi:type="jdbcPalette:JDBCUpdateActivity">
                                     <PreparedParameters
                                     DataType="12"
@@ -714,6 +721,9 @@
                                     DataTypeDisplayValue="NUMERIC" ParameterName="retry_num_max"/>
                                     <PreparedParameters DataType="2"
                                     DataTypeDisplayValue="NUMERIC" ParameterName="retry_freq"/>
+                                    <PreparedParameters
+                                    DataType="12"
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="enabled"/>
                                     <PreparedParameters
                                     DataType="12"
                                     DataTypeDisplayValue="VARCHAR" ParameterName="not_id"/>
@@ -728,7 +738,7 @@
                                     DataTypeDisplayValue="VARCHAR" ParameterName="service"/>
                                     <PreparedParameters
                                     DataType="12"
-                                    DataTypeDisplayValue="VARCHAR" ParameterName="appnode"/>
+                                    DataTypeDisplayValue="VARCHAR" ParameterName="appspace"/>
                                     </value>
                                 </properties>
                             </activityConfig>

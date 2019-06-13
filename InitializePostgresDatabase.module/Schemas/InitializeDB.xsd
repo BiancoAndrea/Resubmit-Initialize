@@ -39,14 +39,23 @@
 
     <complexType name="ResubmitConf_Type">
     	<sequence>
-    		<element name="tipo_rich" type="string" minOccurs="0" maxOccurs="1"/>
-    		<element name="retry_num_max" type="integer" minOccurs="0" maxOccurs="1"/>
-    		<element name="retry_freq" type="integer" minOccurs="0" maxOccurs="1"/>
-    		<element name="not_id" type="string" minOccurs="0" maxOccurs="1"/>
-    		<element name="application" type="string" minOccurs="0" maxOccurs="1"/>
-    		<element name="version" type="string" minOccurs="0" maxOccurs="1"/>
-    		<element name="service" type="string" minOccurs="0" maxOccurs="1"/>
-    		<element name="appnode" type="string" minOccurs="0" maxOccurs="1"/>
+    		<element name="tipo_rich" type="string" minOccurs="0"
+    			maxOccurs="1" />
+    		<element name="retry_num_max" type="integer" minOccurs="0"
+    			maxOccurs="1" />
+    		<element name="retry_freq" type="integer" minOccurs="0"
+    			maxOccurs="1" />
+            <element name="enabled" type="boolean" minOccurs="0" maxOccurs="1"></element>
+            <element name="not_id" type="string" minOccurs="0"
+    			maxOccurs="1" />
+    		<element name="application" type="string" minOccurs="0"
+    			maxOccurs="1" />
+    		<element name="version" type="string" minOccurs="0"
+    			maxOccurs="1" />
+    		<element name="service" type="string" minOccurs="0"
+    			maxOccurs="1" />
+    		<element name="appspace" type="string" minOccurs="0"
+    			maxOccurs="1" />
     	</sequence>
     </complexType>
 </schema>
