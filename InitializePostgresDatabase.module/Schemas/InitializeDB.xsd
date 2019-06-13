@@ -58,4 +58,12 @@
     			maxOccurs="1" />
     	</sequence>
     </complexType>
+
+    <element name="ResubmitConfMultiple" type="tns:ResubmitConf_Multiple_Type"></element>
+
+    <complexType name="ResubmitConf_Multiple_Type">
+    	<sequence>
+    		<element name="ConfRows" type="tns:ResubmitConf_Type" minOccurs="0" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
 </schema>

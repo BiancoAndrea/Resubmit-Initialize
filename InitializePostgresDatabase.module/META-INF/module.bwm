@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_99HlMIEiEemGC8ZqSgn_Bw" targetNamespace="http://tns.tibco.com/bw/composite/InitializePostgresDatabase.module" name="InitializePostgresDatabase.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:InitializeDB="http://www.example.org/InitializeDB" xmlns:InizializeResubmitConfig="http://www.tibco.com/InizializeResubmitConfig/" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:axis2="http://xsd.tns.tibco.com/bw/models/binding/soap/axis2" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:property="http://ns.tibco.com/bw/property" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_99HlMIEiEemGC8ZqSgn_Bw" targetNamespace="http://tns.tibco.com/bw/composite/InitializePostgresDatabase.module" name="InitializePostgresDatabase.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_Iud9kI3JEemqA5gBOZRz_g" name="ResubmitConf" promote="ComponentResubmitConfig_Initialize/ResubmitConf">
+    <sca:interface.wsdl xmi:id="_Iu6pgI3JEemqA5gBOZRz_g" interface="http://www.tibco.com/InizializeResubmitConfig/#wsdl.interface(ResubmitConf)" scaext:wsdlLocation="../Service%20Descriptors/InizializeResubmitConfig.wsdl"/>
+    <scaext:binding xsi:type="axis2:SOAPServiceBinding" xmi:id="_UQbS8I3LEemqA5gBOZRz_g" name="SOAPServiceBinding" targetNamespace="http://www.tibco.com/4719472880c94f4db684feaf7b9d033e/SOAPServiceBinding" portTypeQName="InizializeResubmitConfig:ResubmitConf" transportBindingType="HTTP" attachmentStyle="SwA" modelVersion="1.2.0" portTypeWSDLLocation="platform:/resource/InitializePostgresDatabase.module/Service%20Descriptors/InizializeResubmitConfig.wsdl">
+      <bindingType xmi:id="_URK50I3LEemqA5gBOZRz_g"/>
+      <inboundConfiguration xsi:type="axis2:HttpTransportConfiguration" xmi:id="_WfOs0I3LEemqA5gBOZRz_g" endpointURI="/SOAPServiceBinding/resubmitConf/" httpConnector="initializepostgresdatabase.module.HTTPConnectorResource"/>
+      <operationConfiguration xmi:id="_URK50Y3LEemqA5gBOZRz_g" operationName="Initialize" action="Initialize" actionNeeded="true">
+        <bindingType xmi:id="_URK50o3LEemqA5gBOZRz_g"/>
+        <messageConfiguration xmi:id="_URK5043LEemqA5gBOZRz_g" messageQName="InizializeResubmitConfig:InitializeRequest" wsdlLocation="platform:/resource/InitializePostgresDatabase.module/Service%20Descriptors/InizializeResubmitConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_URK51I3LEemqA5gBOZRz_g" partName="parameters" partElementName="InitializeDB:ResubmitConfMultiple"/>
+        </messageConfiguration>
+        <messageConfiguration xmi:id="_URK51Y3LEemqA5gBOZRz_g" messageQName="InizializeResubmitConfig:InitializeResponse" messageDirection="OUTPUT" wsdlLocation="platform:/resource/InitializePostgresDatabase.module/Service%20Descriptors/InizializeResubmitConfig.wsdl">
+          <messagePartConfigurations xsi:type="axis2:BodyPartConfiguration" xmi:id="_URK51o3LEemqA5gBOZRz_g" partName="parameters" partElementName="InitializeDB:Result"/>
+        </messageConfiguration>
+        <context xmi:id="_URK5143LEemqA5gBOZRz_g">
+          <inputMapping xmi:id="_URK52I3LEemqA5gBOZRz_g"/>
+          <outputMapping xmi:id="_URK52Y3LEemqA5gBOZRz_g" direction="OUTPUT"/>
+        </context>
+      </operationConfiguration>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_URK52o3LEemqA5gBOZRz_g" bindingName="SOAPServiceBinding"/>
+  </sca:service>
   <sca:property xmi:id="_-XiQUIEiEemGC8ZqSgn_Bw" name="BW.DEPLOYMENTUNIT.TYPE" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_-XsBUIEiEemGC8ZqSgn_Bw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
   <sca:property xmi:id="_-XsBUYEiEemGC8ZqSgn_Bw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
@@ -21,5 +42,11 @@
   </sca:component>
   <sca:component xmi:id="_EqsQcIEjEemGC8ZqSgn_Bw" name="ComponentDataInitialize" compositeext:version="1.0.0.qualifier">
     <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_EqsQcYEjEemGC8ZqSgn_Bw" processName="initializepostgresdatabase.module.DataInitialize"/>
+  </sca:component>
+  <sca:component xmi:id="_9URnoI3HEemqA5gBOZRz_g" name="ComponentResubmitConfig_Initialize" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_9URnoY3HEemqA5gBOZRz_g" processName="initializepostgresdatabase.module.ResubmitConfig_Initialize"/>
+    <sca:service xmi:id="_IuLCoI3JEemqA5gBOZRz_g" name="ResubmitConf">
+      <sca:interface.wsdl xmi:id="_IuLCoY3JEemqA5gBOZRz_g" interface="http://www.tibco.com/InizializeResubmitConfig/#wsdl.interface(ResubmitConf)"/>
+    </sca:service>
   </sca:component>
 </sca:composite>
