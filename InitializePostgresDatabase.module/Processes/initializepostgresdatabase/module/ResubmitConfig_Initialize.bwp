@@ -912,8 +912,8 @@
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
-            <styles lineColor="255" xsi:type="notation:ConnectorStyle"/>
-            <styles fontColor="255" fontName="Segoe UI" xsi:type="notation:FontStyle"/>
+            <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
+            <styles fontName="Segoe UI" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@activities.0/@messages.0/@activity/@activity/@activities.3/@activity/@activities.1/@activity/@activity/@links/@children.2"/>
             <bendpoints points="[0, 0, 0, 0]$[0, 0, 0, 0]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
@@ -946,10 +946,6 @@
         <bpws:variable element="tns:Result"
             name="InitializeResubmitConf" sca-bpel:internal="true"/>
         <bpws:variable element="ns2:ActivityInput" name="Log-input" sca-bpel:internal="true"/>
-        <bpws:variable name="FaultName" sca-bpel:internal="true" type="xsd:string"/>
-        <bpws:variable element="ns:ErrorReport" name="_error" sca-bpel:internal="true"/>
-        <bpws:variable element="ns:OptionalErrorReport"
-            name="_errorOptional" sca-bpel:internal="true"/>
         <bpws:variable element="ns3:AccumulatedOutput" name="Result" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
@@ -983,19 +979,17 @@
                                 portType="ns1:ResubmitConf"
                                 tibex:xpdlId="c9eac64c-089c-43ac-930b-4d8e8d3405e0" variable="InitializeOut-input">
                                 <tibex:inputBinding expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns2="http://www.tibco.com/InizializeResubmitConfig/" xmlns:tns="http://www.example.org/InitializeDB" version="2.0"&gt;&lt;xsl:param name="Result"/&gt;&lt;xsl:template name="InitializeOut-input" match="/"&gt;&lt;tns2:InitializeResponse&gt;&lt;parameters&gt;&lt;xsl:choose&gt;&lt;xsl:when test="string-length(string-join($Result/tns:Result[tns:Cod = &amp;quot;KO&amp;quot;]/tns:Desc, &amp;quot;&amp;quot;)) &gt; 0"&gt;&lt;tns:Result&gt;&lt;tns:Cod&gt;&lt;xsl:value-of select="&amp;quot;01&amp;quot;"/&gt;&lt;/tns:Cod&gt;&lt;tns:Desc&gt;&lt;xsl:value-of select="&amp;quot;KO - consultare il log&amp;quot;"/&gt;&lt;/tns:Desc&gt;&lt;/tns:Result&gt;&lt;/xsl:when&gt;&lt;xsl:otherwise&gt;&lt;tns:Result&gt;&lt;tns:Cod&gt;&lt;xsl:value-of select="&amp;quot;00&amp;quot;"/&gt;&lt;/tns:Cod&gt;&lt;tns:Desc&gt;&lt;xsl:value-of select="&amp;quot;OK&amp;quot;"/&gt;&lt;/tns:Desc&gt;&lt;/tns:Result&gt;&lt;/xsl:otherwise&gt;&lt;/xsl:choose&gt;&lt;/parameters&gt;&lt;/tns2:InitializeResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tns2="http://www.tibco.com/InizializeResubmitConfig/" xmlns:tns="http://www.example.org/InitializeDB" version="2.0"&gt;&lt;xsl:param name="Result"/&gt;&lt;xsl:template name="InitializeOut-input" match="/"&gt;&lt;tns2:InitializeResponse&gt;&lt;parameters&gt;&lt;xsl:choose&gt;&lt;xsl:when test="string-length(string-join($Result/tns:Result[tns:Desc = &amp;quot;KO&amp;quot;]/tns:Cod, &amp;quot;&amp;quot;)) &gt; 0"&gt;&lt;tns:Result&gt;&lt;tns:Cod&gt;&lt;xsl:value-of select="&amp;quot;01&amp;quot;"/&gt;&lt;/tns:Cod&gt;&lt;tns:Desc&gt;&lt;xsl:value-of select="&amp;quot;KO - consultare il log&amp;quot;"/&gt;&lt;/tns:Desc&gt;&lt;/tns:Result&gt;&lt;/xsl:when&gt;&lt;xsl:otherwise&gt;&lt;tns:Result&gt;&lt;tns:Cod&gt;&lt;xsl:value-of select="&amp;quot;00&amp;quot;"/&gt;&lt;/tns:Cod&gt;&lt;tns:Desc&gt;&lt;xsl:value-of select="&amp;quot;OK&amp;quot;"/&gt;&lt;/tns:Desc&gt;&lt;/tns:Result&gt;&lt;/xsl:otherwise&gt;&lt;/xsl:choose&gt;&lt;/parameters&gt;&lt;/tns2:InitializeResponse&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;</tibex:inputBinding>
                                 <tibex:inputBindings>
                                     <tibex:partBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.tibco.com/InizializeResubmitConfig/&quot; xmlns:tns=&quot;http://www.example.org/InitializeDB&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Result&quot;/>&#xa;    &lt;xsl:template name=&quot;InitializeOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:choose>&#xa;            &lt;xsl:when test=&quot;string-length(string-join($Result/tns:Result[tns:Cod = &amp;quot;KO&amp;quot;]/tns:Desc, &amp;quot;&amp;quot;)) > 0&quot;>&#xa;                &lt;tns:Result>&#xa;                    &lt;tns:Cod>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;01&amp;quot;&quot;/>&#xa;                    &lt;/tns:Cod>&#xa;                    &lt;tns:Desc>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;KO - consultare il log&amp;quot;&quot;/>&#xa;                    &lt;/tns:Desc>&#xa;                &lt;/tns:Result>&#xa;            &lt;/xsl:when>&#xa;            &lt;xsl:otherwise>&#xa;                &lt;tns:Result>&#xa;                    &lt;tns:Cod>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;00&amp;quot;&quot;/>&#xa;                    &lt;/tns:Cod>&#xa;                    &lt;tns:Desc>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;OK&amp;quot;&quot;/>&#xa;                    &lt;/tns:Desc>&#xa;                &lt;/tns:Result>&#xa;            &lt;/xsl:otherwise>&#xa;        &lt;/xsl:choose>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.tibco.com/InizializeResubmitConfig/&quot; xmlns:tns=&quot;http://www.example.org/InitializeDB&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;Result&quot;/>&#xa;    &lt;xsl:template name=&quot;InitializeOut-input&quot; match=&quot;/&quot;>&#xa;        &lt;xsl:choose>&#xa;            &lt;xsl:when test=&quot;string-length(string-join($Result/tns:Result[tns:Desc = &amp;quot;KO&amp;quot;]/tns:Cod, &amp;quot;&amp;quot;)) > 0&quot;>&#xa;                &lt;tns:Result>&#xa;                    &lt;tns:Cod>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;01&amp;quot;&quot;/>&#xa;                    &lt;/tns:Cod>&#xa;                    &lt;tns:Desc>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;KO - consultare il log&amp;quot;&quot;/>&#xa;                    &lt;/tns:Desc>&#xa;                &lt;/tns:Result>&#xa;            &lt;/xsl:when>&#xa;            &lt;xsl:otherwise>&#xa;                &lt;tns:Result>&#xa;                    &lt;tns:Cod>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;00&amp;quot;&quot;/>&#xa;                    &lt;/tns:Cod>&#xa;                    &lt;tns:Desc>&#xa;                        &lt;xsl:value-of select=&quot;&amp;quot;OK&amp;quot;&quot;/>&#xa;                    &lt;/tns:Desc>&#xa;                &lt;/tns:Result>&#xa;            &lt;/xsl:otherwise>&#xa;        &lt;/xsl:choose>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                 </tibex:inputBindings>
                                 <bpws:targets>
                                     <bpws:target linkName="ForEachToInitializeOut"/>
                                 </bpws:targets>
                             </bpws:reply>
                             <bpws:scope name="Iterate"
-                                tibex:group="iterate"
-                                tibex:indexOriginalName="index"
-                                tibex:indexToGlobal="false" tibex:xpdlId="bb1fa314-8129-4b87-924e-4e13ee5a8d38">
+                                tibex:group="iterate" tibex:xpdlId="bb1fa314-8129-4b87-924e-4e13ee5a8d38">
                                 <bpws:sources>
                                     <bpws:source linkName="ForEachToInitializeOut"/>
                                 </bpws:sources>
@@ -1028,7 +1022,7 @@
                                     <bpws:link
                                     name="GroupStartToInitializeResubmitConf" tibex:linkType="SUCCESS"/>
                                     <bpws:link
-                                    name="InitializeResubmitConfToLog" tibex:linkType="ERROR"/>
+                                    name="InitializeResubmitConfToLog" tibex:linkType="SUCCESSWITHCONDITION"/>
                                     </bpws:links>
                                     <bpws:assign
                                     name="GroupStart"
@@ -1087,16 +1081,14 @@
                                     </bpws:targets>
                                     <bpws:sources>
                                     <bpws:source linkName="InitializeResubmitConfToGroupEnd"/>
-                                    <bpws:source
-                                    linkName="InitializeResubmitConfToLog"
-                                    tibex:faultDetailsVar="InitializeResubmitConf" tibex:faultNameVar="FaultName">
+                                    <bpws:source linkName="InitializeResubmitConfToLog">
                                     <tibex:DesignExpression>
 
                                     <tibex:expression
-                                    expression="##error##" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
+                                    expression="$InitializeResubmitConf/tns:Desc = &quot;KO&quot;" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"/>
                                     </tibex:DesignExpression>
 
-                                    <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[##error##]]></bpws:transitionCondition>
+                                    <bpws:transitionCondition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0"><![CDATA[$InitializeResubmitConf/tns:Desc = "KO"]]></bpws:transitionCondition>
                                     </bpws:source>
                                     </bpws:sources>
                                     <tibex:inputBindings>
